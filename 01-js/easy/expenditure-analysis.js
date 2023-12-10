@@ -6,7 +6,12 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  let answerArr = []
+  
   return [];
 }
+
+let obj = {one: '1', two: '2', three: '3'}
+console.log(obj.length)
 
 module.exports = calculateTotalSpentByCategory;
