@@ -4,7 +4,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let str1 = str.split(",").join("").split(" ").join("").toLowerCase()
+  let str2 = str1.split("").reverse().join("")
+  return str1 === str2
 }
+
+// isPalindrome("No lemon, no melon")
 
 module.exports = isPalindrome;
