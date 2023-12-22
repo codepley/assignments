@@ -17,5 +17,32 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+app.get('/files', function(req, res) {
+  fs.readdir(path.join(__dirname + "/files"), "utf-8", function(err, data) {
+    if(err){
+      res.status(404).json({msg: `Some internal error ${err}`})
+    }else{
+      res.status(200).json(data)
+    }
+  })
+})
+
+app.get('/files/:filename', function(req, res) {
+  fs.readFile(path.join(__dirname + `/files/${req.params.filename}`), 'utf-8', function(err, data) {
+    if(err) {
+      res.status(500).json({msg: `File not found`})
+    }else{
+      res.status(200).json(data)
+    }
+  })
+})
+
+app.get('*', function(req, res) {
+  res.send("Error 404 - page not found")
+})
+
+app.listen(3000, () => {
+  console.log("Listening")
+})
 
 module.exports = app;
