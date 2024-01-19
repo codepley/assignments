@@ -5,6 +5,10 @@ const router = Router();
 // Admin Routes
 router.post('/signup', (req, res) => {
     // Implement admin signup logic
+    const {username, password} = req.body;
+    // create a token with username
+    // hash password
+    // 
 });
 
 router.post('/signin', (req, res) => {
